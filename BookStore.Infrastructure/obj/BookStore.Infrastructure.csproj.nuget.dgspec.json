@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {}
+    "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {}
   },
   "projects": {
-    "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+    "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
         "projectName": "BookStore.Infrastructure",
-        "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "projectPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\usre\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\obj\\",
+        "outputPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

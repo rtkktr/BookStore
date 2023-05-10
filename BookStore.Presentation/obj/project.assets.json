@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
+      "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
       "projectName": "BookStore.Presentation",
-      "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
+      "projectPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
       "packagesPath": "C:\\Users\\usre\\.nuget\\packages\\",
-      "outputPath": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\",
+      "outputPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

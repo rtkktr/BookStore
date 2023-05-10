@@ -2,9 +2,10 @@
 
 namespace BookStore.Domain.Entities
 {
-    public class Publisher : BaseEntity
+    public class Translator : BaseEntity
     {
-        public string? Title { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public string? Description { get; set; }
 
         #region Relations

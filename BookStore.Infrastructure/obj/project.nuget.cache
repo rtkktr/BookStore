@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yuZSyE4QiB2tw7Hqhtqb0zSpzUmv5wiPajtXX4Ih2diO3/F1te22yLuXijgVdTs63MlfCQWWHhHg7ETiY5pLLQ==",
+  "dgSpecHash": "LrPSNWeeAQ1cMJ9CfX0584hAxyccxXFP3P35hYfQn9SMosvJoAMhX/9jXa+0/mk+C5z60OWtZRPeGI5dblWwDA==",
   "success": true,
-  "projectFilePath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+  "projectFilePath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

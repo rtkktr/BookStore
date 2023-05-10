@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "stpAqF8hP1ysDYe+UodnMRDE4JX1HqKE7sbIKzEoBtyFaMqz0ODQfL2JXDw8+3Xs4/w687H0RRy+qd9d/KRvhQ==",
+  "dgSpecHash": "h4Tz1JRjT8C4pGhGrYwZkHQ3+M0pVZx80BuAN9xWOnyycx9FcYRZQl3wH+8/tDQtzPsK1Ks2EOaPpse0vC0fqw==",
   "success": true,
-  "projectFilePath": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
+  "projectFilePath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
