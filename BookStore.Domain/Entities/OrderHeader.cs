@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain.Commons;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Domain.Entities
 {
@@ -6,7 +7,11 @@ namespace BookStore.Domain.Entities
     {
         public int UserId { get; set; }
 
+        [Required]
         public string? Code { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime? Date { get; set; }
 
         #region Relations

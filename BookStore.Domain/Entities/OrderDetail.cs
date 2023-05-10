@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain.Commons;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Domain.Entities
 {
@@ -7,8 +8,12 @@ namespace BookStore.Domain.Entities
         public int OrderHeaderId { get; set; }
         public int BookId { get; set; }
 
+        [Required]
         public int Quantity { get; set; }
+        
+        [Required]
         public int UnitPrice { get; set; }
+
         public int Price { get { return Quantity * UnitPrice; } }
 
         #region Relations
