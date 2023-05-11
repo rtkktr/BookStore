@@ -1,0 +1,14 @@
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Infrastructure.deps.json
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Infrastructure.runtimeconfig.json
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Infrastructure.dll
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Infrastructure.pdb
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.AssemblyInfo.cs
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.dll
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\refint\BookStore.Infrastructure.dll
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.pdb
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.genruntimeconfig.cache
+C:\Users\Student\Desktop\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\ref\BookStore.Infrastructure.dll
