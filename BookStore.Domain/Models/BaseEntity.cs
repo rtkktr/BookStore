@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookStore.Domain.Commons
+namespace BookStore.Domain.Models
 {
     public class BaseEntity
     {

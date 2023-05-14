@@ -1132,6 +1132,19 @@
             "rid": "win"
           }
         }
+      },
+      "BookStore.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/BookStore.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Domain.dll": {}
+        }
       }
     }
   },
@@ -3452,29 +3465,40 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BookStore.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Domain/BookStore.Domain.csproj",
+      "msbuildProject": "../BookStore.Domain/BookStore.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BookStore.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Student\\.nuget\\packages\\": {}
+    "C:\\Users\\usre\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+      "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
       "projectName": "BookStore.Infrastructure",
-      "projectPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Infrastructure\\obj\\",
+      "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\usre\\.nuget\\packages\\",
+      "outputPath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3482,12 +3506,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
+              "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3533,7 +3562,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj": {}
+    "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
+    "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj",
+        "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj",
         "projectName": "BookStore.Domain",
-        "projectPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Domain\\obj\\",
+        "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj",
+        "packagesPath": "C:\\Users\\usre\\.nuget\\packages\\",
+        "outputPath": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,21 +78,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj": {
+    "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
+        "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
         "projectName": "BookStore.Presentation",
-        "projectPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Presentation\\obj\\",
+        "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\BookStore.Presentation.csproj",
+        "packagesPath": "C:\\Users\\usre\\.nuget\\packages\\",
+        "outputPath": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,14 +104,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
-                "projectPath": "C:\\Users\\Student\\Desktop\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
+              "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
+                "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
               }
             }
           }
@@ -153,7 +163,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

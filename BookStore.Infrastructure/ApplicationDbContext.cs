@@ -1,4 +1,4 @@
-﻿using BookStore.Domain.Entities;
+﻿using BookStore.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Domain.Context
