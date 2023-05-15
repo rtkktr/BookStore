@@ -12,3 +12,17 @@ C:\Users\Student\Desktop\BookStore\BookStore.Application\obj\Debug\net7.0\refint
 C:\Users\Student\Desktop\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.pdb
 C:\Users\Student\Desktop\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.genruntimeconfig.cache
 C:\Users\Student\Desktop\BookStore\BookStore.Application\obj\Debug\net7.0\ref\BookStore.Application.dll
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.deps.json
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.runtimeconfig.json
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.dll
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.pdb
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.csproj.AssemblyReference.cache
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.AssemblyInfoInputs.cache
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.AssemblyInfo.cs
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.csproj.CoreCompileInputs.cache
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.dll
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\refint\BookStore.Application.dll
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.pdb
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.genruntimeconfig.cache
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\ref\BookStore.Application.dll

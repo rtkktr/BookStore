@@ -2,5 +2,5 @@
 
 namespace BookStore.Infrastructure.Contracts
 {
-    public interface IPublisherRepository<TKey> : IBaseRepository<Publisher, TKey> { }
+    public interface IPublisherRepository<TKey, TExist> : IBaseRepository<Publisher?, TKey, TExist> { }
 }

@@ -2,5 +2,5 @@
 
 namespace BookStore.Infrastructure.Contracts
 {
-    internal interface IOrderDetailRepository<TKey> : IBaseRepository<OrderDetail, TKey> { }
+    internal interface IOrderDetailRepository<TKey, TExist> : IBaseRepository<OrderDetail?, TKey, TExist> { }
 }
