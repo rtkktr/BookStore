@@ -4,8 +4,8 @@ namespace BookStore.Domain.Models
 {
     public class OrderDetail : BaseEntity
     {
-        public int OrderHeaderId { get; set; }
-        public int BookId { get; set; }
+        public Guid OrderHeaderId { get; set; }
+        public Guid BookId { get; set; }
 
         [Required]
         public int Quantity { get; set; }

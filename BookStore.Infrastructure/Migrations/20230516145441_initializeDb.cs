@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BookStore.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initial_database : Migration
+    public partial class initializeDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -75,9 +75,9 @@ namespace BookStore.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AuthorId = table.Column<int>(type: "int", nullable: false),
-                    TranslatorId = table.Column<int>(type: "int", nullable: false),
-                    PublisherId = table.Column<int>(type: "int", nullable: false),
+                    AuthorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TranslatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PublisherId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductCode = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     PublishYear = table.Column<int>(type: "int", nullable: false),
@@ -85,29 +85,29 @@ namespace BookStore.Infrastructure.Migrations
                     ShortDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     LongDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Weight = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<int>(type: "int", nullable: false),
-                    AuthorId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TranslatorId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    PublisherId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UnitPrice = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Books_Authors_AuthorId1",
-                        column: x => x.AuthorId1,
+                        name: "FK_Books_Authors_AuthorId",
+                        column: x => x.AuthorId,
                         principalTable: "Authors",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Books_Publishers_PublisherId1",
-                        column: x => x.PublisherId1,
+                        name: "FK_Books_Publishers_PublisherId",
+                        column: x => x.PublisherId,
                         principalTable: "Publishers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Books_Translators_TranslatorId1",
-                        column: x => x.TranslatorId1,
+                        name: "FK_Books_Translators_TranslatorId",
+                        column: x => x.TranslatorId,
                         principalTable: "Translators",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,19 +115,19 @@ namespace BookStore.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderHeaders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderHeaders_Users_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_OrderHeaders_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -135,57 +135,57 @@ namespace BookStore.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    OrderHeaderId = table.Column<int>(type: "int", nullable: false),
-                    BookId = table.Column<int>(type: "int", nullable: false),
+                    OrderHeaderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<int>(type: "int", nullable: false),
-                    OrderHeaderId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    BookId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UnitPrice = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderDetails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Books_BookId1",
-                        column: x => x.BookId1,
+                        name: "FK_OrderDetails_Books_BookId",
+                        column: x => x.BookId,
                         principalTable: "Books",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_OrderHeaders_OrderHeaderId1",
-                        column: x => x.OrderHeaderId1,
+                        name: "FK_OrderDetails_OrderHeaders_OrderHeaderId",
+                        column: x => x.OrderHeaderId,
                         principalTable: "OrderHeaders",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_AuthorId1",
+                name: "IX_Books_AuthorId",
                 table: "Books",
-                column: "AuthorId1");
+                column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_PublisherId1",
+                name: "IX_Books_PublisherId",
                 table: "Books",
-                column: "PublisherId1");
+                column: "PublisherId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_TranslatorId1",
+                name: "IX_Books_TranslatorId",
                 table: "Books",
-                column: "TranslatorId1");
+                column: "TranslatorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_BookId1",
+                name: "IX_OrderDetails_BookId",
                 table: "OrderDetails",
-                column: "BookId1");
+                column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderDetails_OrderHeaderId1",
+                name: "IX_OrderDetails_OrderHeaderId",
                 table: "OrderDetails",
-                column: "OrderHeaderId1");
+                column: "OrderHeaderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderHeaders_UserId1",
+                name: "IX_OrderHeaders_UserId",
                 table: "OrderHeaders",
-                column: "UserId1");
+                column: "UserId");
         }
 
         /// <inheritdoc />

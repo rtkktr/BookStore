@@ -52,10 +52,7 @@ namespace BookStore.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("AuthorId1")
+                    b.Property<Guid>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LongDescription")
@@ -70,10 +67,7 @@ namespace BookStore.Infrastructure.Migrations
                     b.Property<int>("PublishYear")
                         .HasColumnType("int");
 
-                    b.Property<int>("PublisherId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("PublisherId1")
+                    b.Property<Guid>("PublisherId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ShortDescription")
@@ -86,10 +80,7 @@ namespace BookStore.Infrastructure.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("TranslatorId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("TranslatorId1")
+                    b.Property<Guid>("TranslatorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("UnitPrice")
@@ -100,11 +91,11 @@ namespace BookStore.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId1");
+                    b.HasIndex("AuthorId");
 
-                    b.HasIndex("PublisherId1");
+                    b.HasIndex("PublisherId");
 
-                    b.HasIndex("TranslatorId1");
+                    b.HasIndex("TranslatorId");
 
                     b.ToTable("Books");
                 });
@@ -115,16 +106,10 @@ namespace BookStore.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("BookId1")
+                    b.Property<Guid>("BookId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("OrderHeaderId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("OrderHeaderId1")
+                    b.Property<Guid>("OrderHeaderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantity")
@@ -135,9 +120,9 @@ namespace BookStore.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookId1");
+                    b.HasIndex("BookId");
 
-                    b.HasIndex("OrderHeaderId1");
+                    b.HasIndex("OrderHeaderId");
 
                     b.ToTable("OrderDetails");
                 });
@@ -156,15 +141,12 @@ namespace BookStore.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("OrderHeaders");
                 });
@@ -256,15 +238,21 @@ namespace BookStore.Infrastructure.Migrations
                 {
                     b.HasOne("BookStore.Domain.Models.Author", "Author")
                         .WithMany("Books")
-                        .HasForeignKey("AuthorId1");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BookStore.Domain.Models.Publisher", "Publisher")
                         .WithMany("Books")
-                        .HasForeignKey("PublisherId1");
+                        .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BookStore.Domain.Models.Translator", "Translator")
                         .WithMany("Books")
-                        .HasForeignKey("TranslatorId1");
+                        .HasForeignKey("TranslatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Author");
 
@@ -277,11 +265,15 @@ namespace BookStore.Infrastructure.Migrations
                 {
                     b.HasOne("BookStore.Domain.Models.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookId1");
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BookStore.Domain.Models.OrderHeader", "OrderHeader")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("OrderHeaderId1");
+                        .HasForeignKey("OrderHeaderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Book");
 
@@ -292,7 +284,9 @@ namespace BookStore.Infrastructure.Migrations
                 {
                     b.HasOne("BookStore.Domain.Models.User", "User")
                         .WithMany("OrderHeaders")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

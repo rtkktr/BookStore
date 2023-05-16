@@ -4,9 +4,9 @@ namespace BookStore.Domain.Models
 {
     public class Book : BaseEntity
     {
-        public int AuthorId { get; set; }
-        public int TranslatorId { get; set; }
-        public int PublisherId { get; set; }
+        public Guid AuthorId { get; set; }
+        public Guid TranslatorId { get; set; }
+        public Guid PublisherId { get; set; }
 
         [Required]
         public int ProductCode { get; set; }

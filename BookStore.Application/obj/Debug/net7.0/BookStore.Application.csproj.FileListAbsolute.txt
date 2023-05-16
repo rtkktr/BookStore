@@ -26,3 +26,17 @@ E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\refint\BookStore
 E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.pdb
 E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.genruntimeconfig.cache
 E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\ref\BookStore.Application.dll
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.deps.json
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.runtimeconfig.json
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.dll
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Application.pdb
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.csproj.AssemblyReference.cache
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.AssemblyInfoInputs.cache
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.AssemblyInfo.cs
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.csproj.CoreCompileInputs.cache
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.dll
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\refint\BookStore.Application.dll
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.pdb
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.genruntimeconfig.cache
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Application\obj\Debug\net7.0\ref\BookStore.Application.dll
