@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookStore.Domain.Models
 {
@@ -33,7 +34,6 @@ namespace BookStore.Domain.Models
 
 
         #region Relations
-
         public Author? Author { get; set; }
         public Translator? Translator { get; set; }
         public Publisher? Publisher { get; set; }

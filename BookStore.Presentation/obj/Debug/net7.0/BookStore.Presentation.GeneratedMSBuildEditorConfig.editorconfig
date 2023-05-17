@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/amirh/Desktop/Amirhosein/programming/BookStore/BookStore/BookStore.Presentation/Views/Author/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amirh/Desktop/Amirhosein/programming/BookStore/BookStore/BookStore.Presentation/Views/Author/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amirh/Desktop/Amirhosein/programming/BookStore/BookStore/BookStore.Presentation/Views/Author/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amirh/Desktop/Amirhosein/programming/BookStore/BookStore/BookStore.Presentation/Views/Book/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/amirh/Desktop/Amirhosein/programming/BookStore/BookStore/BookStore.Presentation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

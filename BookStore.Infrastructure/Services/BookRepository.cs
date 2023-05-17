@@ -35,9 +35,9 @@ namespace BookStore.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Book?>> SelectAllAsync()
+        public async Task<IEnumerable<Book?>> SelectAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Books.ToListAsync();
         }
 
         public Task<Book?> SelectByIdAsync(Guid? id)
