@@ -6,11 +6,7 @@ namespace BookStore.Domain.Models
     {
         public Guid UserId { get; set; }
 
-        [Required]
         public string? Code { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
         public DateTime? Date { get; set; }
 
         #region Relations

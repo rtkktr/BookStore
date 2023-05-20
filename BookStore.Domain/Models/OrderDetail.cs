@@ -6,13 +6,8 @@ namespace BookStore.Domain.Models
     {
         public Guid OrderHeaderId { get; set; }
         public Guid BookId { get; set; }
-
-        [Required]
         public int Quantity { get; set; }
-        
-        [Required]
         public int UnitPrice { get; set; }
-
         public int Price { get { return Quantity * UnitPrice; } }
 
         #region Relations
