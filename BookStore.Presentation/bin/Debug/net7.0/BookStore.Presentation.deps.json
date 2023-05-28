@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v7.0": {
       "BookStore.Presentation/1.0.0": {
         "dependencies": {
-          "BookStore.Domain": "1.0.0",
           "BookStore.Infrastructure": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",

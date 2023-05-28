@@ -1,20 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace BookStore.Domain.Models;
 
-namespace BookStore.Domain.Models
+public class OrderDetail
 {
-    public class OrderDetail : BaseEntity
-    {
-        public Guid OrderHeaderId { get; set; }
-        public Guid BookId { get; set; }
-        public int Quantity { get; set; }
-        public int UnitPrice { get; set; }
-        public int Price { get { return Quantity * UnitPrice; } }
+    public Guid OrderHeaderId { get; set; }
+    public Guid BookId { get; set; }
+    public int Quantity { get; set; }
+    public int UnitPrice { get; set; }
+    public int Price { get { return Quantity * UnitPrice; } }
+    public DateTime DateCreation { get; set; }
+    public DateTime DateModification { get; set; }
+    public bool IsDeleted { get; set; }
 
-        #region Relations
-
-        public OrderHeader? OrderHeader { get; set; }
-        public Book? Book { get; set; }
-
-        #endregion
-    }
+    public OrderHeader? OrderHeader { get; set; }
+    public Book? Book { get; set; }
 }

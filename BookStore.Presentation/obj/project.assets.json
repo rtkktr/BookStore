@@ -10640,7 +10640,6 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "BookStore.Domain >= 1.0.0",
       "BookStore.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
@@ -10681,9 +10680,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
-              "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
-            },
             "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
               "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
             }

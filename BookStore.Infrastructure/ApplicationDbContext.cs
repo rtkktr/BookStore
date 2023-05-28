@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
+using BookStore.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace BookStore.Infrastructure
 {
@@ -9,15 +11,16 @@ namespace BookStore.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>();
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Book> Books { get; set; }
-        public DbSet<Author> Authors { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<OrderHeader> OrderHeaders { get; set; }
-        public DbSet<Publisher> Publishers { get; set; }
-        public DbSet<Translator> Translators { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Book> Book { get; set; }
+        public DbSet<Author> Author { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<OrderHeader> OrderHeader { get; set; }
+        public DbSet<Publisher> Publisher { get; set; }
+        public DbSet<Translator> Translator { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

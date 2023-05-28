@@ -1,6 +1,4 @@
 using BookStore.Infrastructure;
-using BookStore.Infrastructure.Contracts;
-using BookStore.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +8,6 @@ builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddScoped<IBookRepository<Guid?, bool?>, BookRepository>();
-builder.Services.AddScoped<IAuthorRepository<Guid?, bool?>, AuthorRepository>();
 
 var app = builder.Build();
 

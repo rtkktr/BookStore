@@ -1,17 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace BookStore.Domain.Models;
 
-namespace BookStore.Domain.Models
+public class Publisher : BaseEntity
 {
-    public class Publisher : BaseEntity
-    {
-        public string? Title { get; set; }
+    public string? Title { get; set; }
+    public string? Description { get; set; }
+    public DateTime DateCreation { get; set; }
+    public DateTime DateModification { get; set; }
+    public bool IsDeleted { get; set; }
 
-        public string? Description { get; set; }
-
-        #region Relations
-
-        public List<Book>? Books { get; set; }
-
-        #endregion
-    }
+    public List<Book>? Books { get; set; }
 }

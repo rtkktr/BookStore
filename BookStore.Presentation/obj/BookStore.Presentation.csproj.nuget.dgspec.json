@@ -193,9 +193,6 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
-                "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
-              },
               "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
                 "projectPath": "E:\\projects\\c#\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
               }
