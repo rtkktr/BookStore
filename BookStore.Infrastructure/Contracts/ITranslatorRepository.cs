@@ -2,5 +2,5 @@
 
 namespace BookStore.Infrastructure.Contracts
 {
-    public interface ITranslatorRepository<TKey, TExist> : IBaseRepository<Translator?, TKey, TExist> { }
+    public interface ITranslatorRepository<TKey, TExist, TStatus> : IBaseRepository<Translator?, TKey, TExist, TStatus> { }
 }

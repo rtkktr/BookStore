@@ -2,5 +2,5 @@
 
 namespace BookStore.Infrastructure.Contracts
 {
-    public interface IOrderHeaderRepository<TKey, TExist> : IBaseRepository<OrderHeader?, TKey, TExist> { }
+    public interface IOrderHeaderRepository<TKey, TExist, TStatus> : IBaseRepository<OrderHeader?, TKey, TExist, TStatus> { }
 }

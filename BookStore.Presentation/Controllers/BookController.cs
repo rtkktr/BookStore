@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure;
+using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,19 +9,30 @@ namespace Test.Controllers
 {
     public class BookController : Controller
     {
+        private readonly IBookRepository<Guid, bool, BookRepositoryStatus> _bookRepository;
         private readonly ApplicationDbContext _context;
 
-        public BookController(ApplicationDbContext context)
+        public BookController(IBookRepository<Guid, bool, BookRepositoryStatus> bookRepository, ApplicationDbContext context)
         {
+            _bookRepository = bookRepository;
             _context = context;
         }
+
+
 
         // GET: Book
         public async Task<IActionResult> Index()
         {
-              return _context.Book != null ? 
-                          View(await _context.Book.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Book'  is null.");
+            var (books, status) = await _bookRepository.SelectAllAsync();
+            switch (status)
+            {
+                case BookRepositoryStatus.Success:
+                    return View(books);
+                case BookRepositoryStatus.DatabaseError:
+                case BookRepositoryStatus.TableIsEmpty:
+                    return View(new List<Book>());
+            }
+            return View();
         }
 
         // GET: Book/Details/5
