@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<IBookRepository<Guid, bool, BookRepositoryStatus>, BookRepository>();
+builder.Services.AddScoped<IBookRepository<Guid?, bool, RepositoryStatus>, BookRepository>();
 
 var app = builder.Build();
 

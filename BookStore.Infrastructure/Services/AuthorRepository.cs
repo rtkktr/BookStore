@@ -5,23 +5,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Infrastructure.Services
 {
-    public class BookRepository : IBookRepository<Guid?, bool, RepositoryStatus>
+    public class AuthorRepository : IAuthorRepository<Guid, bool, RepositoryStatus>
     {
         private readonly ApplicationDbContext _context;
 
-        public BookRepository(ApplicationDbContext context) =>_context = context;
+        public AuthorRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-        public async Task<RepositoryStatus> DeleteAsync(Book? entity)
+        public async Task<RepositoryStatus> DeleteAsync(Author? entity)
         {
             try
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
                 entity.IsDeleted = true;
-                _context.Book.Update(entity);
+                _context.Author.Update(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
-                
+
             }
             catch (Exception)
             {
@@ -29,14 +32,14 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<RepositoryStatus> DeleteByIdAsync(Guid? id)
+        public async Task<RepositoryStatus> DeleteByIdAsync(Guid id)
         {
             try
             {
-                var book = await _context.Book.FirstOrDefaultAsync(book => book.Id == id);
-                if (book == null) return RepositoryStatus.NullEntity;
-                book.IsDeleted = true;
-                _context.Book.Update(book);
+                var author = await _context.Author.FirstOrDefaultAsync(author => author.Id == id);
+                if (author == null) return RepositoryStatus.NullEntity;
+                author.IsDeleted = true;
+                _context.Author.Update(author);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
             }
@@ -46,13 +49,13 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<RepositoryStatus> InsertAsync(Book? entity)
+        public async Task<RepositoryStatus> InsertAsync(Author? entity)
         {
             try
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
-                await _context.Book.AddAsync(entity);
+                await _context.Author.AddAsync(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
             }
@@ -60,15 +63,13 @@ namespace BookStore.Infrastructure.Services
             {
                 return RepositoryStatus.DatabaseError;
             }
-            
-
         }
 
-        public (bool, RepositoryStatus) IsExist(Guid? id)
+        public (bool, RepositoryStatus) IsExist(Guid id)
         {
             try
             {
-                bool isExist = (_context.Book?.Any(book => book.Id == id)).GetValueOrDefault();
+                bool isExist = (_context.Author?.Any(author => author.Id == id)).GetValueOrDefault();
                 return (isExist, RepositoryStatus.Success);
             }
             catch (Exception)
@@ -77,29 +78,29 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<(IEnumerable<Book?>?, RepositoryStatus)> SelectAllAsync()
+        public async Task<(IEnumerable<Author?>?, RepositoryStatus)> SelectAllAsync()
         {
             try
             {
-                var books = await _context.Book.ToListAsync();
-                if (books == null || books.Count == 0)
+                var authors = await _context.Author.ToListAsync();
+                if (authors == null || authors.Count == 0)
                     return (null, RepositoryStatus.TableIsEmpty);
-                return (books, RepositoryStatus.Success);
+                return (authors, RepositoryStatus.Success);
             }
             catch (Exception)
             {
                 return (null, RepositoryStatus.DatabaseError);
-            }   
+            }
         }
 
-        public async Task<(Book?, RepositoryStatus)> SelectByIdAsync(Guid? id)
+        public async Task<(Author?, RepositoryStatus)> SelectByIdAsync(Guid id)
         {
             try
             {
-                var book = await _context.Book.FirstOrDefaultAsync(book => book.Id == id);
-                if (book == null)
-                    return(null, RepositoryStatus.BookNotExist);
-                return (book, RepositoryStatus.Success);
+                var author = await _context.Author.FirstOrDefaultAsync(author => author.Id == id);
+                if (author == null)
+                    return (null, RepositoryStatus.BookNotExist);
+                return (author, RepositoryStatus.Success);
             }
             catch (Exception)
             {
@@ -107,13 +108,13 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<RepositoryStatus> UpdateAsync(Book? entity)
+        public async Task<RepositoryStatus> UpdateAsync(Author? entity)
         {
             try
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
-                _context.Book.Update(entity);
+                _context.Author.Update(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
 

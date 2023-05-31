@@ -9,13 +9,11 @@ namespace Test.Controllers
 {
     public class BookController : Controller
     {
-        private readonly IBookRepository<Guid, bool, BookRepositoryStatus> _bookRepository;
-        private readonly ApplicationDbContext _context;
+        private readonly IBookRepository<Guid?, bool, RepositoryStatus> _bookRepository;
 
-        public BookController(IBookRepository<Guid, bool, BookRepositoryStatus> bookRepository, ApplicationDbContext context)
+        public BookController(IBookRepository<Guid?, bool, RepositoryStatus> bookRepository, ApplicationDbContext context)
         {
             _bookRepository = bookRepository;
-            _context = context;
         }
 
 
@@ -26,10 +24,10 @@ namespace Test.Controllers
             var (books, status) = await _bookRepository.SelectAllAsync();
             switch (status)
             {
-                case BookRepositoryStatus.Success:
+                case RepositoryStatus.Success:
                     return View(books);
-                case BookRepositoryStatus.DatabaseError:
-                case BookRepositoryStatus.TableIsEmpty:
+                case RepositoryStatus.DatabaseError:
+                case RepositoryStatus.TableIsEmpty:
                     return View(new List<Book>());
             }
             return View();
@@ -38,13 +36,13 @@ namespace Test.Controllers
         // GET: Book/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Book == null)
+            var (books, BooksStatus) = await _bookRepository.SelectAllAsync();
+            if (id == null || books == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (book, bookStatus) = await _bookRepository.SelectByIdAsync(id);
             if (book == null)
             {
                 return NotFound();
@@ -69,8 +67,7 @@ namespace Test.Controllers
             if (ModelState.IsValid)
             {
                 book.Id = Guid.NewGuid();
-                _context.Add(book);
-                await _context.SaveChangesAsync();
+                await _bookRepository.InsertAsync(book);
                 return RedirectToAction(nameof(Index));
             }
             return View(book);
@@ -79,12 +76,13 @@ namespace Test.Controllers
         // GET: Book/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Book == null)
+            var(books, booksStatus) = await _bookRepository.SelectAllAsync();
+            if (id == null || books == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book.FindAsync(id);
+            var (book, bookStatus) = await _bookRepository.SelectByIdAsync(id); 
             if (book == null)
             {
                 return NotFound();
@@ -108,8 +106,7 @@ namespace Test.Controllers
             {
                 try
                 {
-                    _context.Update(book);
-                    await _context.SaveChangesAsync();
+                    await _bookRepository.UpdateAsync(book);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -130,13 +127,14 @@ namespace Test.Controllers
         // GET: Book/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Book == null)
+            var (books, booksStatus) = await _bookRepository.SelectAllAsync();
+            if (id == null || books == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (book, bookStatus) = await _bookRepository.SelectByIdAsync(id);
+                
             if (book == null)
             {
                 return NotFound();
@@ -150,23 +148,23 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Book == null)
+            var(books, booksStatus) = await _bookRepository.SelectAllAsync();
+            if (books == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Book'  is null.");
             }
-            var book = await _context.Book.FindAsync(id);
+            var (book, bookStatus) = await _bookRepository.SelectByIdAsync(id);
             if (book != null)
             {
-                _context.Book.Remove(book);
+                await _bookRepository.DeleteAsync(book);
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BookExists(Guid id)
         {
-          return (_context.Book?.Any(e => e.Id == id)).GetValueOrDefault();
+            var (exist, status) = _bookRepository.IsExist(id);
+          return exist;
         }
     }
 }
