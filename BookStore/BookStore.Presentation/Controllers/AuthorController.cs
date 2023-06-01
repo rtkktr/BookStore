@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure;
+using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,31 +9,38 @@ namespace Test.Controllers
 {
     public class AuthorController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAuthorRepository<Guid?, bool, RepositoryStatus> _authorRepository;
 
-        public AuthorController(ApplicationDbContext context)
+        public AuthorController(IAuthorRepository<Guid?, bool, RepositoryStatus> authorRepository)
         {
-            _context = context;
+            _authorRepository = authorRepository;
         }
 
         // GET: Author
         public async Task<IActionResult> Index()
         {
-              return _context.Author != null ? 
-                          View(await _context.Author.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Author'  is null.");
+            var (authors, authorsStatus) = await _authorRepository.SelectAllAsync();
+            switch (authorsStatus)
+            {
+                case RepositoryStatus.Success: 
+                    return View(authors);
+                case RepositoryStatus.DatabaseError:
+                case RepositoryStatus.TableIsEmpty:
+                    return View(new List<Author>());
+            }
+            return View();
         }
 
         // GET: Author/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Author == null)
+            var (authors, authorsStatus) = await _authorRepository.SelectAllAsync();
+            if (id == null || authors == null)
             {
                 return NotFound();
             }
 
-            var author = await _context.Author
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (author, authorStatus) = await _authorRepository.SelectByIdAsync(id);
             if (author == null)
             {
                 return NotFound();
@@ -56,8 +65,7 @@ namespace Test.Controllers
             if (ModelState.IsValid)
             {
                 author.Id = Guid.NewGuid();
-                _context.Add(author);
-                await _context.SaveChangesAsync();
+                await _authorRepository.InsertAsync(author);
                 return RedirectToAction(nameof(Index));
             }
             return View(author);
@@ -66,12 +74,13 @@ namespace Test.Controllers
         // GET: Author/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Author == null)
+            var (authors, authorsStatus) = await _authorRepository.SelectAllAsync();
+            if (id == null || authors == null)
             {
                 return NotFound();
             }
 
-            var author = await _context.Author.FindAsync(id);
+            var (author, authorStatus) = await _authorRepository.SelectByIdAsync(id);
             if (author == null)
             {
                 return NotFound();
@@ -95,8 +104,7 @@ namespace Test.Controllers
             {
                 try
                 {
-                    _context.Update(author);
-                    await _context.SaveChangesAsync();
+                    await _authorRepository.UpdateAsync(author);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,13 +125,13 @@ namespace Test.Controllers
         // GET: Author/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Author == null)
+            var (authors, authorsStatus) = await _authorRepository.SelectAllAsync();
+            if (id == null || authors == null)
             {
                 return NotFound();
             }
 
-            var author = await _context.Author
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (author, authorStatus) = await _authorRepository.SelectByIdAsync(id);
             if (author == null)
             {
                 return NotFound();
@@ -137,23 +145,23 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Author == null)
+            var (authors, authorsStatus) = await _authorRepository.SelectAllAsync();
+            if (authors == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Author'  is null.");
             }
-            var author = await _context.Author.FindAsync(id);
+            var (author, authorStatus) = await _authorRepository.SelectByIdAsync(id);
             if (author != null)
             {
-                _context.Author.Remove(author);
+                await _authorRepository.DeleteAsync(author);
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AuthorExists(Guid id)
         {
-          return (_context.Author?.Any(e => e.Id == id)).GetValueOrDefault();
+            var (authorExist, status) = _authorRepository.IsExist(id);
+            return authorExist;
         }
     }
 }

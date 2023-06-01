@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Infrastructure.Services
 {
-    public class AuthorRepository : IAuthorRepository<Guid, bool, RepositoryStatus>
+    public class AuthorRepository : IAuthorRepository<Guid?, bool, RepositoryStatus>
     {
         private readonly ApplicationDbContext _context;
 
@@ -32,7 +32,7 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<RepositoryStatus> DeleteByIdAsync(Guid id)
+        public async Task<RepositoryStatus> DeleteByIdAsync(Guid? id)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public (bool, RepositoryStatus) IsExist(Guid id)
+        public (bool, RepositoryStatus) IsExist(Guid? id)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<(Author?, RepositoryStatus)> SelectByIdAsync(Guid id)
+        public async Task<(Author?, RepositoryStatus)> SelectByIdAsync(Guid? id)
         {
             try
             {
