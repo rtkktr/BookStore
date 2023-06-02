@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure;
+using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,31 +9,38 @@ namespace Test.Controllers
 {
     public class PublisherController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IPublisherRepository<Guid?, bool, RepositoryStatus> _publisherRepository;
 
-        public PublisherController(ApplicationDbContext context)
+        public PublisherController(IPublisherRepository<Guid?, bool, RepositoryStatus> publisherRepository)
         {
-            _context = context;
+            _publisherRepository = publisherRepository;
         }
 
         // GET: Publisher
         public async Task<IActionResult> Index()
         {
-              return _context.Publisher != null ? 
-                          View(await _context.Publisher.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Publisher'  is null.");
+            var (publishers, publishersStatus) = await _publisherRepository.SelectAllAsync();
+            switch(publishersStatus)
+            {
+                case RepositoryStatus.Success: 
+                    return View(publishers);
+                case RepositoryStatus.DatabaseError:
+                case RepositoryStatus.TableIsEmpty: 
+                    return View(new List<Publisher>());
+            }
+            return View();
         }
 
         // GET: Publisher/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Publisher == null)
+            var (publishers, publishersStatus) = await _publisherRepository.SelectAllAsync();
+            if (id == null || publishers == null)
             {
                 return NotFound();
             }
 
-            var publisher = await _context.Publisher
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (publisher, publisherStatus) = await _publisherRepository.SelectByIdAsync(id);
             if (publisher == null)
             {
                 return NotFound();
@@ -56,8 +65,7 @@ namespace Test.Controllers
             if (ModelState.IsValid)
             {
                 publisher.Id = Guid.NewGuid();
-                _context.Add(publisher);
-                await _context.SaveChangesAsync();
+                await _publisherRepository.InsertAsync(publisher);
                 return RedirectToAction(nameof(Index));
             }
             return View(publisher);
@@ -66,12 +74,13 @@ namespace Test.Controllers
         // GET: Publisher/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Publisher == null)
+            var (publishers, publishersStatus) = await _publisherRepository.SelectAllAsync();
+            if (id == null || publishers == null)
             {
                 return NotFound();
             }
 
-            var publisher = await _context.Publisher.FindAsync(id);
+            var (publisher, publisherStatus) = await _publisherRepository.SelectByIdAsync(id);
             if (publisher == null)
             {
                 return NotFound();
@@ -95,8 +104,7 @@ namespace Test.Controllers
             {
                 try
                 {
-                    _context.Update(publisher);
-                    await _context.SaveChangesAsync();
+                    await _publisherRepository.UpdateAsync(publisher);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,13 +125,14 @@ namespace Test.Controllers
         // GET: Publisher/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Publisher == null)
+            var (publishers, publishersStatus) = await _publisherRepository.SelectAllAsync();
+            if (id == null || publishers == null)
             {
                 return NotFound();
             }
 
-            var publisher = await _context.Publisher
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (publisher, publisherStatus) = await _publisherRepository.SelectByIdAsync(id);
+         
             if (publisher == null)
             {
                 return NotFound();
@@ -137,23 +146,24 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Publisher == null)
+            var (publishers, publishersStatus) = await _publisherRepository.SelectAllAsync();
+            if (publishers == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Publisher'  is null.");
             }
-            var publisher = await _context.Publisher.FindAsync(id);
+            var (publisher, publisherStatus) = await _publisherRepository.SelectByIdAsync(id);
             if (publisher != null)
             {
-                _context.Publisher.Remove(publisher);
+               await _publisherRepository.DeleteAsync(publisher);
             }
             
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PublisherExists(Guid id)
         {
-          return (_context.Publisher?.Any(e => e.Id == id)).GetValueOrDefault();
+          var (publisherExist, status) = _publisherRepository.IsExist(id);
+          return publisherExist;
         }
     }
 }

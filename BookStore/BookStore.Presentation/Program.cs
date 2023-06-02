@@ -14,6 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddScoped<IBookRepository<Guid?, bool, RepositoryStatus>, BookRepository>();
 builder.Services.AddScoped<IAuthorRepository<Guid?, bool, RepositoryStatus>, AuthorRepository>();
+builder.Services.AddScoped<IPublisherRepository<Guid?, bool, RepositoryStatus>, PublisherRepository>();
 
 var app = builder.Build();
 
