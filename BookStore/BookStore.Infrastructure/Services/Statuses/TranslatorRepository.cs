@@ -1,27 +1,31 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure.Contracts;
-using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BookStore.Infrastructure.Services
+namespace BookStore.Infrastructure.Services.Statuses
 {
-    public class PublisherRepository : IPublisherRepository<Guid?, bool, RepositoryStatus>
+    public class TranslatorRepository : ITranslatorRepository<Guid?, bool, RepositoryStatus>
     {
         private readonly ApplicationDbContext _context;
 
-        public PublisherRepository(ApplicationDbContext context)
+        public TranslatorRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<RepositoryStatus> DeleteAsync(Publisher? entity)
+        public async Task<RepositoryStatus> DeleteAsync(Translator? entity)
         {
             try
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
                 entity.IsDeleted = true;
-                _context.Publisher.Update(entity);
+                _context.Translator.Update(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
             }
@@ -35,10 +39,10 @@ namespace BookStore.Infrastructure.Services
         {
             try
             {
-                var publisher = await _context.Publisher.FirstOrDefaultAsync(publisher => publisher.Id == id);
-                if (publisher == null) return RepositoryStatus.NullEntity;
-                publisher.IsDeleted = true;
-                _context.Publisher.Update(publisher);
+                var translator = await _context.Translator.FirstOrDefaultAsync(translator => translator.Id == id);
+                if (translator == null) return RepositoryStatus.NullEntity;
+                translator.IsDeleted = true;
+                _context.Translator.Update(translator);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
             }
@@ -48,13 +52,13 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<RepositoryStatus> InsertAsync(Publisher? entity)
+        public async Task<RepositoryStatus> InsertAsync(Translator? entity)
         {
             try
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
-                await _context.Publisher.AddAsync(entity);
+                await _context.Translator.AddAsync(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
             }
@@ -68,7 +72,7 @@ namespace BookStore.Infrastructure.Services
         {
             try
             {
-                bool isExist = (_context.Publisher?.Any(publisher => publisher.Id == id)).GetValueOrDefault();
+                bool isExist = (_context.Translator?.Any(translator => translator.Id == id)).GetValueOrDefault();
                 return (isExist, RepositoryStatus.Success);
             }
             catch (Exception)
@@ -77,14 +81,14 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<(IEnumerable<Publisher?>?, RepositoryStatus)> SelectAllAsync()
+        public async Task<(IEnumerable<Translator?>?, RepositoryStatus)> SelectAllAsync()
         {
             try
             {
-                var publisher = await _context.Publisher.ToListAsync();
-                if (publisher == null || publisher.Count == 0)
+                var translators = await _context.Translator.ToListAsync();
+                if (translators == null || translators.Count == 0)
                     return (null, RepositoryStatus.TableIsEmpty);
-                return (publisher, RepositoryStatus.Success);
+                return (translators, RepositoryStatus.Success);
             }
             catch (Exception)
             {
@@ -92,14 +96,14 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<(Publisher?, RepositoryStatus)> SelectByIdAsync(Guid? id)
+        public async Task<(Translator?, RepositoryStatus)> SelectByIdAsync(Guid? id)
         {
             try
             {
-                var publisher = await _context.Publisher.FirstOrDefaultAsync(publisher => publisher.Id == id);
-                if (publisher == null)
+                var translator = await _context.Translator.FirstOrDefaultAsync(translator => translator.Id == id);
+                if (translator == null)
                     return (null, RepositoryStatus.NotExist);
-                return (publisher, RepositoryStatus.Success);
+                return (translator, RepositoryStatus.Success);
             }
             catch (Exception)
             {
@@ -107,13 +111,13 @@ namespace BookStore.Infrastructure.Services
             }
         }
 
-        public async Task<RepositoryStatus> UpdateAsync(Publisher? entity)
+        public async Task<RepositoryStatus> UpdateAsync(Translator? entity)
         {
             try
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
-                _context.Publisher.Update(entity);
+                _context.Translator.Update(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
 
