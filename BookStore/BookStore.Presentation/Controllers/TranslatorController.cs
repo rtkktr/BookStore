@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure;
+using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,31 +9,38 @@ namespace Test.Controllers
 {
     public class TranslatorController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ITranslatorRepository<Guid?, bool, RepositoryStatus> _translatorRepository;
 
-        public TranslatorController(ApplicationDbContext context)
+        public TranslatorController(ITranslatorRepository<Guid?, bool, RepositoryStatus> translatorRepository)
         {
-            _context = context;
+            _translatorRepository = translatorRepository;
         }
 
         // GET: Translator
         public async Task<IActionResult> Index()
         {
-              return _context.Translator != null ? 
-                          View(await _context.Translator.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Translator'  is null.");
+            var (translators, translatorsStatus) = await _translatorRepository.SelectAllAsync();
+            switch(translatorsStatus)
+            {
+                case RepositoryStatus.Success:
+                    return View(translators);
+                case RepositoryStatus.DatabaseError:
+                case RepositoryStatus.TableIsEmpty:
+                    return View(new List<Translator>());
+            }
+            return View();
         }
 
         // GET: Translator/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Translator == null)
+            var (translators, translatorsStatus) = await _translatorRepository.SelectAllAsync();
+            if (id == null || translators == null)
             {
                 return NotFound();
             }
 
-            var translator = await _context.Translator
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (translator, translatorStatus) = await _translatorRepository.SelectByIdAsync(id); 
             if (translator == null)
             {
                 return NotFound();
@@ -56,8 +65,7 @@ namespace Test.Controllers
             if (ModelState.IsValid)
             {
                 translator.Id = Guid.NewGuid();
-                _context.Add(translator);
-                await _context.SaveChangesAsync();
+                await _translatorRepository.InsertAsync(translator);
                 return RedirectToAction(nameof(Index));
             }
             return View(translator);
@@ -66,12 +74,13 @@ namespace Test.Controllers
         // GET: Translator/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Translator == null)
+            var (translators, translatorsStatus) = await _translatorRepository.SelectAllAsync();
+            if (id == null || translators == null)
             {
                 return NotFound();
             }
 
-            var translator = await _context.Translator.FindAsync(id);
+            var (translator, translatorStatus) = await _translatorRepository.SelectByIdAsync(id);
             if (translator == null)
             {
                 return NotFound();
@@ -95,8 +104,7 @@ namespace Test.Controllers
             {
                 try
                 {
-                    _context.Update(translator);
-                    await _context.SaveChangesAsync();
+                    await _translatorRepository.UpdateAsync(translator);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,13 +125,13 @@ namespace Test.Controllers
         // GET: Translator/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Translator == null)
+            var (translators, translatorsStatus) = await _translatorRepository.SelectAllAsync();
+            if (id == null || translators == null)
             {
                 return NotFound();
             }
 
-            var translator = await _context.Translator
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (translator, translatorStatus) = await _translatorRepository.SelectByIdAsync(id);
             if (translator == null)
             {
                 return NotFound();
@@ -137,23 +145,24 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Translator == null)
+            var (translators, translatorsStatus) = await _translatorRepository.SelectAllAsync();
+            if (translators == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Translator'  is null.");
             }
-            var translator = await _context.Translator.FindAsync(id);
+            var (translator, translatorStatus) = await _translatorRepository.SelectByIdAsync(id);
             if (translator != null)
             {
-                _context.Translator.Remove(translator);
+                await _translatorRepository.DeleteAsync(translator);
             }
-            
-            await _context.SaveChangesAsync();
+           
             return RedirectToAction(nameof(Index));
         }
 
         private bool TranslatorExists(Guid id)
         {
-          return (_context.Translator?.Any(e => e.Id == id)).GetValueOrDefault();
+          var (tranlatorExist, status) = _translatorRepository.IsExist(id);
+            return tranlatorExist;
         }
     }
 }

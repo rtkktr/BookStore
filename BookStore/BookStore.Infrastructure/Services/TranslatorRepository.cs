@@ -1,5 +1,6 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStore.Infrastructure.Services.Statuses
+namespace BookStore.Infrastructure.Services
 {
     public class TranslatorRepository : ITranslatorRepository<Guid?, bool, RepositoryStatus>
     {
