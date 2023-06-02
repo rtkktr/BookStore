@@ -148,7 +148,7 @@ namespace Test.Controllers
             var (translators, translatorsStatus) = await _translatorRepository.SelectAllAsync();
             if (translators == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Translator'  is null.");
+                return Problem("Entity set'ApplicationDbContext.Translator'  is null.");
             }
             var (translator, translatorStatus) = await _translatorRepository.SelectByIdAsync(id);
             if (translator != null)
