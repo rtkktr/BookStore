@@ -16,6 +16,7 @@ builder.Services.AddScoped<IBookRepository<Guid?, bool, RepositoryStatus>, BookR
 builder.Services.AddScoped<IAuthorRepository<Guid?, bool, RepositoryStatus>, AuthorRepository>();
 builder.Services.AddScoped<IPublisherRepository<Guid?, bool, RepositoryStatus>, PublisherRepository>();
 builder.Services.AddScoped<ITranslatorRepository<Guid?, bool, RepositoryStatus>, TranslatorRepository>();
+builder.Services.AddScoped<IOrderHeaderRepository<Guid?, bool, RepositoryStatus>, OrderHeaderRepository>();
 
 var app = builder.Build();
 
