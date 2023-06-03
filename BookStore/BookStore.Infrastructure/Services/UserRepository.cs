@@ -40,7 +40,7 @@ namespace BookStore.Infrastructure.Services
         {
             try
             {
-                var user = await _context.User.FirstOrDefaultAsync(u => u.Id == id);
+                var user = await _context.User.FirstOrDefaultAsync(user => user.Id == id);
                 if (user == null) return RepositoryStatus.NullEntity;
                 user.IsDeleted = true;
                 _context.User.Update(user);
