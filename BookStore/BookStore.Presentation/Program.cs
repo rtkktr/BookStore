@@ -17,6 +17,7 @@ builder.Services.AddScoped<IAuthorRepository<Guid?, bool, RepositoryStatus>, Aut
 builder.Services.AddScoped<IPublisherRepository<Guid?, bool, RepositoryStatus>, PublisherRepository>();
 builder.Services.AddScoped<ITranslatorRepository<Guid?, bool, RepositoryStatus>, TranslatorRepository>();
 builder.Services.AddScoped<IOrderHeaderRepository<Guid?, bool, RepositoryStatus>, OrderHeaderRepository>();
+builder.Services.AddScoped<IUserRepository<Guid?, bool, RepositoryStatus>, UserRepository>();
 
 var app = builder.Build();
 

@@ -129,5 +129,6 @@ namespace BookStore.Infrastructure.Services
                     return RepositoryStatus.DatabaseError;
                 }
             }
+        }
     }
 }
