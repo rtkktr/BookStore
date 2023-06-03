@@ -1,19 +1,27 @@
-﻿@{
+﻿@using BookStore.Domain.Models;
+@model IEnumerable<Book>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="container mt-4">
 <h2>Books</h2>
-<div class="row" id="bookList">
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <img src="" class="card-img-top" alt="Book Image" />
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <h6 class="card-subtitle mb-2 text-muted">reza</h6>
-                <p class="card-text">mahyar</p>
-            </div>
-        </div>
-    </div>
-</div>
+    @if (Model != null)
+    {
+        @foreach (var book in Model)
+        {
+                <div class="row" id="bookList">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="" class="card-img-top" alt="Book Image" />
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@book.Title</h6>
+                            <p class="card-text">@book.UnitPrice</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        }
+    }
 </div>

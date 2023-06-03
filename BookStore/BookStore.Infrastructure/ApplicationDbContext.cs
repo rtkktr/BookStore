@@ -1,5 +1,4 @@
 ﻿using BookStore.Domain.Models;
-using BookStore.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

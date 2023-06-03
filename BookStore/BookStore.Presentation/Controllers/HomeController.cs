@@ -1,21 +1,22 @@
-﻿using BookStore.Infrastructure;
+﻿using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Presentation.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IBookRepository<Guid?, bool, RepositoryStatus> _bookRepository;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(IBookRepository<Guid?, bool, RepositoryStatus> bookRepository)
         {
-            _context = context;
+            _bookRepository = bookRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var (books, status) = await _bookRepository.SelectAllAsync();
+            return View(books);   
         }
     }
 }
