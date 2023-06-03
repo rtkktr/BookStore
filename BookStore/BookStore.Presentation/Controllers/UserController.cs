@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure;
+using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,31 +9,38 @@ namespace Test.Controllers
 {
     public class UserController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUserRepository<Guid?, bool, RepositoryStatus> _userRepository;
 
-        public UserController(ApplicationDbContext context)
+        public UserController(IUserRepository<Guid?, bool, RepositoryStatus> userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
         // GET: User
         public async Task<IActionResult> Index()
         {
-              return _context.User != null ? 
-                          View(await _context.User.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.User'  is null.");
+            var (users, usersStatus) = await _userRepository.SelectAllAsync();
+            switch (usersStatus)
+            {
+                case RepositoryStatus.Success:
+                    return View(users);
+                case RepositoryStatus.DatabaseError:
+                case RepositoryStatus.TableIsEmpty: 
+                    return View(new List<User>());
+            }
+            return View();
         }
 
         // GET: User/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.User == null)
+            var (users, usersStatus) = await _userRepository.SelectAllAsync();
+            if (id == null || User == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (user, userStatus) = await _userRepository.SelectByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -56,8 +65,7 @@ namespace Test.Controllers
             if (ModelState.IsValid)
             {
                 user.Id = Guid.NewGuid();
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                await _userRepository.InsertAsync(user);
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -66,12 +74,13 @@ namespace Test.Controllers
         // GET: User/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.User == null)
+            var (users, usersStatus) = await _userRepository.SelectAllAsync();
+            if (id == null || users == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
+            var (user, userStatus) = await _userRepository.SelectByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -95,8 +104,7 @@ namespace Test.Controllers
             {
                 try
                 {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
+                    await _userRepository.UpdateAsync(user);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,13 +125,13 @@ namespace Test.Controllers
         // GET: User/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.User == null)
+            var (users, usersStatus) = await _userRepository.SelectAllAsync();
+            if (id == null || users == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (user, userStatus) = await _userRepository.SelectByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -137,23 +145,24 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.User == null)
+            var (users, usersStatus) = await _userRepository.SelectAllAsync();
+            if (users == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.User'  is null.");
             }
-            var user = await _context.User.FindAsync(id);
+            var (user, userStatus) = await _userRepository.SelectByIdAsync(id);
             if (user != null)
             {
-                _context.User.Remove(user);
+                await _userRepository.DeleteAsync(user);
             }
             
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(Guid id)
         {
-          return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
+            var(userExist, status) = _userRepository.IsExist(id);
+            return userExist;
         }
     }
 }

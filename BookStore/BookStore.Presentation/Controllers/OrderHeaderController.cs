@@ -1,5 +1,7 @@
 ﻿using BookStore.Domain.Models;
 using BookStore.Infrastructure;
+using BookStore.Infrastructure.Contracts;
+using BookStore.Infrastructure.Services.Statuses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,31 +9,38 @@ namespace Test.Controllers
 {
     public class OrderHeaderController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IOrderHeaderRepository<Guid?, bool, RepositoryStatus> _orderHeaderRepository;
 
-        public OrderHeaderController(ApplicationDbContext context)
+        public OrderHeaderController(IOrderHeaderRepository<Guid?, bool, RepositoryStatus> orderHeaderRepository)
         {
-            _context = context;
+            _orderHeaderRepository = orderHeaderRepository;
         }
 
         // GET: OrderHeader
         public async Task<IActionResult> Index()
         {
-              return _context.OrderHeader != null ? 
-                          View(await _context.OrderHeader.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.OrderHeader'  is null.");
+            var (orderHeaders, orderHeadersStatus) = await _orderHeaderRepository.SelectAllAsync();
+            switch (orderHeadersStatus)
+            {
+                case RepositoryStatus.Success:
+                    return View(orderHeaders);
+                case RepositoryStatus.DatabaseError:
+                case RepositoryStatus.TableIsEmpty:
+                    return View(new List<OrderHeader>());
+            }
+            return View();
         }
 
         // GET: OrderHeader/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.OrderHeader == null)
+            var (orderHeaders, orderHeadersStatus) = await _orderHeaderRepository.SelectAllAsync();
+            if (id == null || orderHeaders == null)
             {
                 return NotFound();
             }
 
-            var orderHeader = await _context.OrderHeader
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (orderHeader, orderHeaderStatus) = await _orderHeaderRepository.SelectByIdAsync(id);
             if (orderHeader == null)
             {
                 return NotFound();
@@ -56,8 +65,7 @@ namespace Test.Controllers
             if (ModelState.IsValid)
             {
                 orderHeader.Id = Guid.NewGuid();
-                _context.Add(orderHeader);
-                await _context.SaveChangesAsync();
+                await _orderHeaderRepository.InsertAsync(orderHeader);
                 return RedirectToAction(nameof(Index));
             }
             return View(orderHeader);
@@ -66,12 +74,13 @@ namespace Test.Controllers
         // GET: OrderHeader/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.OrderHeader == null)
+            var (orderHeaders, orderHeadersStatus) = await _orderHeaderRepository.SelectAllAsync();
+            if (id == null || orderHeaders == null)
             {
                 return NotFound();
             }
 
-            var orderHeader = await _context.OrderHeader.FindAsync(id);
+            var (orderHeader, orderHeaderStatus) = await _orderHeaderRepository.SelectByIdAsync(id);
             if (orderHeader == null)
             {
                 return NotFound();
@@ -95,8 +104,7 @@ namespace Test.Controllers
             {
                 try
                 {
-                    _context.Update(orderHeader);
-                    await _context.SaveChangesAsync();
+                    await _orderHeaderRepository.UpdateAsync(orderHeader);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,13 +125,13 @@ namespace Test.Controllers
         // GET: OrderHeader/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.OrderHeader == null)
+            var (orderHeaders, orderHeadersStatus) = await _orderHeaderRepository.SelectAllAsync();
+            if (id == null || orderHeaders == null)
             {
                 return NotFound();
             }
 
-            var orderHeader = await _context.OrderHeader
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var (orderHeader, orderHeaderStatus) = await _orderHeaderRepository.SelectByIdAsync(id);
             if (orderHeader == null)
             {
                 return NotFound();
@@ -137,23 +145,24 @@ namespace Test.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.OrderHeader == null)
+            var (orderHeaders, orderHeadersStatus) = await _orderHeaderRepository.SelectAllAsync();
+            if (orderHeaders == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.OrderHeader'  is null.");
             }
-            var orderHeader = await _context.OrderHeader.FindAsync(id);
+            var (orderHeader, orderHeaderStatus) = await _orderHeaderRepository.SelectByIdAsync(id);
             if (orderHeader != null)
             {
-                _context.OrderHeader.Remove(orderHeader);
+                await _orderHeaderRepository.DeleteByIdAsync(id);
             }
-            
-            await _context.SaveChangesAsync();
+          
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderHeaderExists(Guid id)
         {
-          return (_context.OrderHeader?.Any(e => e.Id == id)).GetValueOrDefault();
+            var (orderHeaderExist, status) = _orderHeaderRepository.IsExist(id);
+            return orderHeaderExist;
         }
     }
 }

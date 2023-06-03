@@ -73,7 +73,7 @@ namespace BookStore.Infrastructure.Services
             }
             catch (Exception)
             {
-                return (false, RepositoryStatus.BookNotExist);
+                return (false, RepositoryStatus.NotExist);
             }
         }
 
@@ -98,7 +98,7 @@ namespace BookStore.Infrastructure.Services
             {
                 var book = await _context.Book.FirstOrDefaultAsync(book => book.Id == id);
                 if (book == null)
-                    return(null, RepositoryStatus.BookNotExist);
+                    return(null, RepositoryStatus.NotExist);
                 return (book, RepositoryStatus.Success);
             }
             catch (Exception)

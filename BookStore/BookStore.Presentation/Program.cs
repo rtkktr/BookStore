@@ -13,6 +13,11 @@ var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IBookRepository<Guid?, bool, RepositoryStatus>, BookRepository>();
+builder.Services.AddScoped<IAuthorRepository<Guid?, bool, RepositoryStatus>, AuthorRepository>();
+builder.Services.AddScoped<IPublisherRepository<Guid?, bool, RepositoryStatus>, PublisherRepository>();
+builder.Services.AddScoped<ITranslatorRepository<Guid?, bool, RepositoryStatus>, TranslatorRepository>();
+builder.Services.AddScoped<IOrderHeaderRepository<Guid?, bool, RepositoryStatus>, OrderHeaderRepository>();
+builder.Services.AddScoped<IUserRepository<Guid?, bool, RepositoryStatus>, UserRepository>();
 
 var app = builder.Build();
 
