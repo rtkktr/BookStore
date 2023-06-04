@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using BookStore.Domain.Models;
+@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Books";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="container mt-5">
+<h2>All Books</h2>
+    <div class="row" id="book-list">
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="book-image.jpg" class="card-img-top" alt="Book Image">
+                        <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">@item.UnitPrice</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>

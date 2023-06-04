@@ -3481,23 +3481,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amirh\\.nuget\\packages\\": {},
+    "C:\\Users\\usre\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amirh\\Desktop\\Amirhosein\\programming\\BookStore\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+      "projectUniqueName": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
       "projectName": "BookStore.Infrastructure",
-      "projectPath": "C:\\Users\\amirh\\Desktop\\Amirhosein\\programming\\BookStore\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\amirh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amirh\\Desktop\\Amirhosein\\programming\\BookStore\\BookStore\\BookStore\\BookStore.Infrastructure\\obj\\",
+      "projectPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\usre\\.nuget\\packages\\",
+      "outputPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\amirh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3513,8 +3513,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\amirh\\Desktop\\Amirhosein\\programming\\BookStore\\BookStore\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
-              "projectPath": "C:\\Users\\amirh\\Desktop\\Amirhosein\\programming\\BookStore\\BookStore\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
+            "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj": {
+              "projectPath": "E:\\projects\\c#\\BookStore\\BookStore\\BookStore.Domain\\BookStore.Domain.csproj"
             }
           }
         }
@@ -3562,7 +3562,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
