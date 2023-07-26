@@ -1,11 +1,10 @@
 ﻿using BookStore.Domain.Models;
-using BookStore.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace BookStore.Infrastructure
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
