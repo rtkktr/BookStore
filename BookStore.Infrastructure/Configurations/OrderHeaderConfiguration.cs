@@ -10,9 +10,6 @@ namespace BookStore.Infrastructure.Configurations
         {
             builder.Property(orderHeader => orderHeader.Code).IsRequired();
             builder.Property(orderHeader => orderHeader.Date).HasDefaultValue(DateTime.Now);
-            builder.Property(orderHeader => orderHeader.DateCreation).IsRequired().HasDefaultValue(DateTime.Now);
-            builder.Property(orderHeader => orderHeader.DateModification).IsRequired().HasDefaultValue(DateTime.Now);
-            builder.Property(orderHeader => orderHeader.IsDeleted).IsRequired().HasDefaultValue(false);
         }
     }
 }

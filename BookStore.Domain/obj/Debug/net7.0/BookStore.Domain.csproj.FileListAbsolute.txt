@@ -54,3 +54,17 @@ C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore\Book
 C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.pdb
 C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.genruntimeconfig.cache
 C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore\BookStore.Domain\obj\Debug\net7.0\ref\BookStore.Domain.dll
+E:\projects\c#\BookStore\BookStore.Domain\bin\Debug\net7.0\BookStore.Domain.deps.json
+E:\projects\c#\BookStore\BookStore.Domain\bin\Debug\net7.0\BookStore.Domain.runtimeconfig.json
+E:\projects\c#\BookStore\BookStore.Domain\bin\Debug\net7.0\BookStore.Domain.dll
+E:\projects\c#\BookStore\BookStore.Domain\bin\Debug\net7.0\BookStore.Domain.pdb
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.csproj.AssemblyReference.cache
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.AssemblyInfoInputs.cache
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.AssemblyInfo.cs
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.csproj.CoreCompileInputs.cache
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.dll
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\refint\BookStore.Domain.dll
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.pdb
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\BookStore.Domain.genruntimeconfig.cache
+E:\projects\c#\BookStore\BookStore.Domain\obj\Debug\net7.0\ref\BookStore.Domain.dll

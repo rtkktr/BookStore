@@ -20,7 +20,6 @@ namespace BookStore.Infrastructure.Services
             {
                 if (entity == null)
                     return RepositoryStatus.NullEntity;
-                entity.IsDeleted = true;
                 _context.Author.Update(entity);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;
@@ -38,7 +37,6 @@ namespace BookStore.Infrastructure.Services
             {
                 var author = await _context.Author.FirstOrDefaultAsync(author => author.Id == id);
                 if (author == null) return RepositoryStatus.NullEntity;
-                author.IsDeleted = true;
                 _context.Author.Update(author);
                 await _context.SaveChangesAsync();
                 return RepositoryStatus.Success;

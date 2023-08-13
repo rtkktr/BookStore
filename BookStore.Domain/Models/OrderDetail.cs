@@ -7,9 +7,6 @@ public class OrderDetail
     public int Quantity { get; set; }
     public int UnitPrice { get; set; }
     public int Price { get { return Quantity * UnitPrice; } }
-    public DateTime DateCreation { get; set; }
-    public DateTime DateModification { get; set; }
-    public bool IsDeleted { get; set; }
 
     public OrderHeader? OrderHeader { get; set; }
     public Book? Book { get; set; }

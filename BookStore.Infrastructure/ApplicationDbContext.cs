@@ -1,10 +1,11 @@
 ﻿using BookStore.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace BookStore.Infrastructure
 {
-    public class ApplicationDbContext : Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext
+    public class ApplicationDbContext : Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -20,6 +21,5 @@ namespace BookStore.Infrastructure
         public DbSet<OrderHeader> OrderHeader { get; set; }
         public DbSet<Publisher> Publisher { get; set; }
         public DbSet<Translator> Translator { get; set; }
-        public DbSet<User> User { get; set; }
     }
 }
