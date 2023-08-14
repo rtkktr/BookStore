@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.Presentation.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BookStore.Presentation.bundle.scp.css"
+    },
+    {
       "Id": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

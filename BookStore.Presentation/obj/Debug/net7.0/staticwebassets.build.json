@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ImzLcq6E07pnBLrWcX/v/YSlt0EUUApjDZXJZehVjIQ=",
+  "Hash": "5uH1IF2DwIivx0jcOCNECZ4oX+bDbJAyNQZXcQUZqjI=",
   "Source": "BookStore.Presentation",
   "BasePath": "_content/BookStore.Presentation",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BookStore.Presentation.styles.css",
+      "SourceId": "BookStore.Presentation",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/BookStore.Presentation",
+      "RelativePath": "BookStore.Presentation.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BookStore.Presentation.styles.css"
+    },
+    {
+      "Identity": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.Presentation.bundle.scp.css",
+      "SourceId": "BookStore.Presentation",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/BookStore.Presentation",
+      "RelativePath": "BookStore.Presentation.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.Presentation.bundle.scp.css"
+    },
     {
       "Identity": "E:\\projects\\c#\\BookStore\\BookStore.Presentation\\wwwroot\\css\\site.css",
       "SourceId": "BookStore.Presentation",

@@ -918,3 +918,5 @@ E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\refint\BookStor
 E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\BookStore.Presentation.pdb
 E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\BookStore.Presentation.genruntimeconfig.cache
 E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\ref\BookStore.Presentation.dll
+E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\scopedcss\projectbundle\BookStore.Presentation.bundle.scp.css

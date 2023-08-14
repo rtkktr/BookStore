@@ -3,5 +3,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BookStore.Infrastructure.Contracts
 {
-    public interface IUserRepository<TKey, TExist, TStatus> : IBaseRepository<IdentityUser?, TKey, TExist, TStatus> { }
+    public interface IUserRepository<TStatus>
+    {
+        Task<TStatus> InsertAsync(IdentityUser? entity, string? password);
+    }
 }
