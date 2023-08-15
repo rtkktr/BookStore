@@ -920,3 +920,7 @@ E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\BookStore.Prese
 E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\ref\BookStore.Presentation.dll
 E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\projects\c#\BookStore\BookStore.Presentation\obj\Debug\net7.0\scopedcss\projectbundle\BookStore.Presentation.bundle.scp.css
+E:\projects\c#\BookStore\BookStore.Presentation\bin\Debug\net7.0\BookStore.Application.dll
+E:\projects\c#\BookStore\BookStore.Presentation\bin\Debug\net7.0\BookStore.Application.pdb
+E:\projects\c#\BookStore\BookStore.Presentation\bin\Debug\net7.0\BookStore.Utility.dll
+E:\projects\c#\BookStore\BookStore.Presentation\bin\Debug\net7.0\BookStore.Utility.pdb

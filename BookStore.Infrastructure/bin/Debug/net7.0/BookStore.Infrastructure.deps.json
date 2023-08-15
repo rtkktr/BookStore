@@ -9,6 +9,7 @@
       "BookStore.Infrastructure/1.0.0": {
         "dependencies": {
           "BookStore.Domain": "1.0.0",
+          "BookStore.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
@@ -737,6 +738,11 @@
         "runtime": {
           "BookStore.Domain.dll": {}
         }
+      },
+      "BookStore.Utility/1.0.0": {
+        "runtime": {
+          "BookStore.Utility.dll": {}
+        }
       }
     }
   },
@@ -1251,6 +1257,11 @@
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
     "BookStore.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookStore.Utility/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

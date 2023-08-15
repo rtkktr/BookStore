@@ -1,0 +1,12 @@
+E:\projects\c#\BookStore\BookStore.Utility\bin\Debug\net7.0\BookStore.Utility.deps.json
+E:\projects\c#\BookStore\BookStore.Utility\bin\Debug\net7.0\BookStore.Utility.dll
+E:\projects\c#\BookStore\BookStore.Utility\bin\Debug\net7.0\BookStore.Utility.pdb
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.csproj.AssemblyReference.cache
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.AssemblyInfoInputs.cache
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.AssemblyInfo.cs
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.csproj.CoreCompileInputs.cache
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.dll
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\refint\BookStore.Utility.dll
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\BookStore.Utility.pdb
+E:\projects\c#\BookStore\BookStore.Utility\obj\Debug\net7.0\ref\BookStore.Utility.dll

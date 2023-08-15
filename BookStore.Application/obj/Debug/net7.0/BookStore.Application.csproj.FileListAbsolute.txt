@@ -10,3 +10,10 @@ E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Applic
 E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\refint\BookStore.Application.dll
 E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.pdb
 E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\ref\BookStore.Application.dll
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Domain.dll
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Infrastructure.dll
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Infrastructure.pdb
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Domain.pdb
+E:\projects\c#\BookStore\BookStore.Application\obj\Debug\net7.0\BookStore.Application.csproj.CopyComplete
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Utility.dll
+E:\projects\c#\BookStore\BookStore.Application\bin\Debug\net7.0\BookStore.Utility.pdb

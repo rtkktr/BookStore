@@ -1,10 +1,11 @@
 ﻿using BookStore.Application.Dtos.Users;
+using BookStore.Utility.ValidationErrors;
 
 namespace BookStore.Application.Contracts
 {
-    public interface IUserService<TStatus>
+    public interface IUserService
     {
-        Task<TStatus> CreateAsync(CreateUserDto entity);
+        Task<List<ValidationError?>?> CreateAsync(CreateUserDto user);
+        Task<(List<GetAllUserDto?>?, List<ValidationError?>?)> GetAllAsync();
     }
-
 }

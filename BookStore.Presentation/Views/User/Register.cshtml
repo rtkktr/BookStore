@@ -1,21 +1,29 @@
 ﻿@using BookStore.Application.Dtos.Users;
 @model CreateUserDto
 
-<form method="post" asp-action="Register" asp-controller="User">
+<form method="post" asp-action="Register" asp-controller="User" class="needs-validation" novalidate>
     <div class="text-danger" asp-validation-summary="All"></div>
-    <div class="form-group">
-        <label asp-for="UserName"></label>
-        <input type="text" class="form-control" asp-for="UserName" />
+    <div class="mb-3">
+        <label for="UserName" class="form-label">Username</label>
+        <input type="text" class="form-control" id="UserName" name="UserName" asp-for="UserName" required>
+        <div class="invalid-feedback">
+            Please provide a valid username.
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input type="text" class="form-control" asp-for="Password" />
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password" asp-for="Password" required>
+        <div class="invalid-feedback">
+            Please provide a valid password.
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input type="text" class="form-control" asp-for="Email" />
-
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" asp-for="Email" required>
+        <div class="invalid-feedback">
+            Please provide a valid email.
+        </div>
     </div>
-    <input type="submit" class="btn btn-success " value="Register"/>
-    <input type="reset" class="btn btn-danger " value="Reset" />
+    <button type="submit" class="btn btn-success">Register</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
 </form>

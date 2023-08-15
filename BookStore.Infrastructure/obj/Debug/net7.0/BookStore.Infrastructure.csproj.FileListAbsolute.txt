@@ -80,3 +80,5 @@ E:\projects\c#\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\refint\BookSt
 E:\projects\c#\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.pdb
 E:\projects\c#\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.genruntimeconfig.cache
 E:\projects\c#\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\ref\BookStore.Infrastructure.dll
+E:\projects\c#\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Utility.dll
+E:\projects\c#\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Utility.pdb

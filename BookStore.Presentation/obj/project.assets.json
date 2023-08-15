@@ -1248,6 +1248,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "BookStore.Domain": "1.0.0",
+          "BookStore.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
         },
@@ -1256,6 +1257,16 @@
         },
         "runtime": {
           "bin/placeholder/BookStore.Infrastructure.dll": {}
+        }
+      },
+      "BookStore.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/BookStore.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Utility.dll": {}
         }
       }
     }
@@ -3683,6 +3694,11 @@
       "type": "project",
       "path": "../BookStore.Infrastructure/BookStore.Infrastructure.csproj",
       "msbuildProject": "../BookStore.Infrastructure/BookStore.Infrastructure.csproj"
+    },
+    "BookStore.Utility/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Utility/BookStore.Utility.csproj",
+      "msbuildProject": "../BookStore.Utility/BookStore.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {

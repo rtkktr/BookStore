@@ -1,10 +1,11 @@
 ﻿using BookStore.Infrastructure.Contracts;
-using BookStore.Infrastructure.Services.Statuses;
+using BookStore.Utility.ValidationErrors;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Infrastructure.Services
 {
-    public class UserRepository : IUserRepository<List<IdentityError>?>
+    public class UserRepository : IUserRepository
     {
         #region [- Constructor -]
 
@@ -16,20 +17,58 @@ namespace BookStore.Infrastructure.Services
         }
 
         #endregion
-        public async Task<List<IdentityError>?> InsertAsync(IdentityUser? entity, string? password)
+
+        #region [- Insert -]
+
+        public async Task<List<ValidationError?>?> InsertAsync(IdentityUser? user, string? password)
         {
-            if (entity == null)
-                return new List<IdentityError> { new IdentityError { Code = "NullEntity", Description = "Entity is null." } };
+            List<IdentityError?>? errors = new List<IdentityError?>();
+
+            if (user == null)
+                errors.Add(new IdentityError() { Code = "NullUserExeption", Description = "User shoulden't be null " });
 
             if (password == null)
-                return new List<IdentityError> { new IdentityError { Code = "NullPassword", Description = "Password is null." } };
+                errors.Add(new IdentityError() { Code = "NullPasswordExeption", Description = "Password shoulden't be null " });
 
-            var result = await _userManager.CreateAsync(entity, password);
+            if (user != null && password != null)
+            {
+                var result = await _userManager.CreateAsync(user, password);
+                errors.AddRange(result.Errors.ToList());
+            }
 
-            if (!result.Succeeded)
-                return (List<IdentityError>)result.Errors;
+            List<ValidationError?>? validationErrors = new();
 
-            return null;
+            foreach (var error in errors)
+            {
+                validationErrors.Add(new ValidationError
+                {
+                    Code = error.Code,
+                    Description = error.Description,
+                });
+            }
+            
+            return validationErrors;
         }
+
+        #endregion
+
+        #region [- Select -]
+
+        public async Task<(List<IdentityUser>, List<ValidationError?>?)> SelectAllAsync()
+        {
+            List<ValidationError?>? errors = new();
+
+            List<IdentityUser> users = await _userManager.Users.ToListAsync();
+
+            if (users.Count == 0)
+                errors.Add(new ValidationError
+                {
+                    Code = "UsersNotFound",
+                    Description = "There are no registered users in the app"
+                });
+            return (users, errors);
+        }
+
+        #endregion
     }
 }

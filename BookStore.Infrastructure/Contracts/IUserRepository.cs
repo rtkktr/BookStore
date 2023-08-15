@@ -1,10 +1,11 @@
-﻿using BookStore.Domain.Models;
+﻿using BookStore.Utility.ValidationErrors;
 using Microsoft.AspNetCore.Identity;
 
 namespace BookStore.Infrastructure.Contracts
 {
-    public interface IUserRepository<TStatus>
+    public interface IUserRepository
     {
-        Task<TStatus> InsertAsync(IdentityUser? entity, string? password);
+        Task<List<ValidationError?>?> InsertAsync(IdentityUser? user, string? password);
+        Task<(List<IdentityUser>, List<ValidationError?>?)> SelectAllAsync();
     }
 }
