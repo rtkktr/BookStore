@@ -35,5 +35,11 @@ namespace BookStore.Presentation.Controllers
             }
             return View(login);
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _accountService.Logout();
+            return Redirect("/");
+        }
     }
 }

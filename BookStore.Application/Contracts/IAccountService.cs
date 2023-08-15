@@ -6,5 +6,6 @@ namespace BookStore.Application.Contracts
     public interface IAccountService
     {
         Task<List<ValidationError?>?> SignInAsync(LoginDto login);
+        Task Logout();
     }
 }

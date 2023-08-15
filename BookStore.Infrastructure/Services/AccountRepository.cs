@@ -30,5 +30,10 @@ namespace BookStore.Infrastructure.Services
 
             return errors;
         }
+
+        public async Task Logout()
+        {
+            await _signInManager.SignOutAsync();
+        }
     }
 }

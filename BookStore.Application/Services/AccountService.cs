@@ -21,5 +21,10 @@ namespace BookStore.Application.Services
 
             return results;
         }
+
+        public async Task Logout()
+        {
+            await _accountRepository.Logout();
+        }
     }
 }
