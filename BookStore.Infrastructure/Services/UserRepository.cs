@@ -33,7 +33,9 @@ namespace BookStore.Infrastructure.Services
             if (user != null && password != null)
             {
                 var result = await _userManager.CreateAsync(user, password);
+                var roleResult = await _userManager.AddToRoleAsync(user, "User");
                 errors.AddRange(result.Errors.ToList());
+                errors.AddRange(roleResult.Errors.ToList());
             }
 
             List<ValidationError?>? validationErrors = new();

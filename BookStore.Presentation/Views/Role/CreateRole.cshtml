@@ -1,0 +1,15 @@
+﻿@using BookStore.Application.Dtos.Role;
+@model CreateRoleDto
+
+<form method="post" asp-action="CreateRole" asp-controller="Role" class="needs-validation" novalidate>
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" asp-for="Name" required>
+        <div class="invalid-feedback">
+            Please provide a valid name.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+</form>
