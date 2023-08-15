@@ -29,6 +29,19 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="User" asp-action="Register">Register</a>
                     </li>
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout"> @User.Identity.Name - Logout</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
