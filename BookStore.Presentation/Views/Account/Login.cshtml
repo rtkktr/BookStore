@@ -1,23 +1,35 @@
 ﻿@using BookStore.Application.Dtos.Account;
 @model LoginDto
 
-<form method="post" asp-action="Login" asp-controller="Account" class="needs-validation" novalidate>
-    <div class="text-danger" asp-validation-summary="All"></div>
-    <div class="mb-3">
-        <label for="UserName" class="form-label">Username</label>
-        <input type="text" class="form-control" id="UserName" name="UserName" asp-for="UserName" required>
-        <div class="invalid-feedback">
-            Please provide a valid username.
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login</h2>
+                    <form method="post" asp-action="Login" asp-controller="Account" class="needs-validation" novalidate>
+                        <div class="text-danger mb-3" asp-validation-summary="All"></div>
+                        <div class="mb-3">
+                            <label for="UserName" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName" asp-for="UserName" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid username.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="Password" name="Password" asp-for="Password" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid password.
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="mb-3">
-        <label for="Password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="Password" name="Password" asp-for="Password" required>
-        <div class="invalid-feedback">
-            Please provide a valid password.
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-success">Login</button>
-    <button type="reset" class="btn btn-danger">Reset</button>
-</form>
+</div>
