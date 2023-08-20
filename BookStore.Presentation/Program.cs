@@ -1,8 +1,7 @@
 using BookStore.Application.Contracts;
 using BookStore.Application.Services;
+using BookStore.Domain.Models;
 using BookStore.Infrastructure;
-using BookStore.Infrastructure.Contracts;
-using BookStore.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +13,8 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders() ;
 
 builder.Services.Configure<IdentityOptions>(c =>
 {
@@ -24,11 +24,8 @@ builder.Services.Configure<IdentityOptions>(c =>
     c.Password.RequiredLength = 3;
 });
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
 

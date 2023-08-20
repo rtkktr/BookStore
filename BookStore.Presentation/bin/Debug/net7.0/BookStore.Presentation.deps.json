@@ -9,6 +9,7 @@
       "BookStore.Presentation/1.0.0": {
         "dependencies": {
           "BookStore.Application": "1.0.0",
+          "BookStore.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.9",
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.9",

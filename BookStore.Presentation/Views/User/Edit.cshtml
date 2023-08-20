@@ -1,0 +1,74 @@
+﻿@using BookStore.Application.Dtos.Users;
+@model GetUserDto
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Edit</h2>
+                    <form method="post" asp-action="Edit" asp-controller="User" class="needs-validation" novalidate>
+                        <div class="text-danger mb-3" asp-validation-summary="All"></div>
+                        <input asp-for="Id" hidden />
+                        <div class="mb-3">
+                            <label asp-for="FirstName" class="form-label"></label>
+                            <input asp-for="FirstName" type="text" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid Name.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="LastName" class="form-label"></label>
+                            <input asp-for="LastName" type="text" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid Last Name.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NationalId" class="form-label"></label>
+                            <input asp-for="NationalId" type="text" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid National id.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="PhoneNumber" class="form-label"></label>
+                            <input asp-for="PhoneNumber" type="text" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid Phone Number.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName" asp-for="UserName" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid username.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="City" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="City">
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StreetAddress" class="form-label"></label>
+                            <input type="text" class="form-control" asp-for="StreetAddress">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="Email" name="Email" asp-for="Email" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid email.
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Apply</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            <button asp-action="Index" asp-controller="User">Back To List</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

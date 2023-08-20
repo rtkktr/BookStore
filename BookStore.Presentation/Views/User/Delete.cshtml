@@ -1,0 +1,38 @@
+﻿@using BookStore.Application.Dtos.Users
+@model GetUserDto
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Delete</h2>
+                    <form method="post" asp-action="Delete" asp-controller="User" class="has-validation" validate>
+                        <div class="text-danger mb-3" asp-validation-summary="All"></div>
+                        <input asp-for="Id" hidden />
+                        <div class="mb-3">
+                            <label asp-for="FirstName" class="form-label"></label>
+                            <input asp-for="FirstName" type="text" class="form-control" required disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="LastName" class="form-label"></label>
+                            <input asp-for="LastName" type="text" class="form-control" required disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NationalId" class="form-label"></label>
+                            <input asp-for="NationalId" type="text" class="form-control" required disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="UserName" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName" asp-for="UserName" required disabled>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                            <button asp-action="Index" asp-controller="User" class="btn btn-secondary">Back to List</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

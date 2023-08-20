@@ -2,5 +2,6 @@
 {
     public class RemoveUserDto
     {
+        public string Id { get; set; }
     }
 }
