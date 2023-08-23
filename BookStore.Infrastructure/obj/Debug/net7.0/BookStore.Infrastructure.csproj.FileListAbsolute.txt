@@ -101,3 +101,5 @@ C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore.Infrastructure
 C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.pdb
 C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\BookStore.Infrastructure.genruntimeconfig.cache
 C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore.Infrastructure\obj\Debug\net7.0\ref\BookStore.Infrastructure.dll
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Utility.dll
+C:\Users\amirh\Desktop\Amirhosein\programming\BookStore\BookStore\BookStore.Infrastructure\bin\Debug\net7.0\BookStore.Utility.pdb

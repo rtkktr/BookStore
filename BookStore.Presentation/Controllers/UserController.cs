@@ -70,7 +70,7 @@ namespace BookStore.Presentation.Controllers
 
         public async Task<IActionResult> Delete(string userId)
         {
-            var (getUserDto, errors) = await _userService.GetUserById(userId);
+            var (getUserDto, errors) = await _userService.GetUserByIdAsync(userId);
             if (errors.Count> 0)
             {
                 foreach (var e in errors)
@@ -88,7 +88,7 @@ namespace BookStore.Presentation.Controllers
         public async Task<IActionResult> Delete(GetUserDto userDto)
         {
             RemoveUserDto removeUserDto = new RemoveUserDto() {Id = userDto.Id };
-            var result = await _userService.RemoveById(removeUserDto); 
+            var result = await _userService.RemoveAsync(removeUserDto); 
             if(result.Count > 0) 
             {
                 foreach(var e in result)
@@ -106,7 +106,7 @@ namespace BookStore.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(string userId)
         {
-            var (getUserDto, errors) = await _userService.GetUserById(userId);
+            var (getUserDto, errors) = await _userService.GetUserByIdAsync(userId);
             if(errors.Count > 0)
             {
                 foreach (var e in errors)
@@ -134,7 +134,7 @@ namespace BookStore.Presentation.Controllers
                 City = getUserDto.City,
                 StreetAddress = getUserDto.StreetAddress,
             };
-            var result = await _userService.EditById(editUserDto);
+            var result = await _userService.EditAsync(editUserDto);
             if (result.Count > 0)
             {
                 foreach(var e in result)

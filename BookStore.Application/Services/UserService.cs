@@ -91,7 +91,7 @@ namespace BookStore.Application.Services
             return (usersDto, errors);
         }
 
-        public async Task<(GetUserDto ,List<ValidationError?>?)> GetUserById(string id)
+        public async Task<(GetUserDto ,List<ValidationError?>?)> GetUserByIdAsync(string id)
         {
             GetUserDto? userDto = new GetUserDto();
             List<ValidationError?>? validationErrors = new();
@@ -135,7 +135,7 @@ namespace BookStore.Application.Services
 
         }
 
-        public async Task<List<ValidationError?>?> RemoveById(RemoveUserDto removeUserDto)
+        public async Task<List<ValidationError?>?> RemoveAsync(RemoveUserDto removeUserDto)
         {
             List<IdentityError?>? errors = new List<IdentityError?>();
             List<ValidationError?>? validationErrors = new List<ValidationError?>();
@@ -165,7 +165,7 @@ namespace BookStore.Application.Services
 
             return validationErrors;
         }
-        public async Task<List<ValidationError?>?> EditById(EditUserDto editUserDto)
+        public async Task<List<ValidationError?>?> EditAsync(EditUserDto editUserDto)
         {
             List<ValidationError?>? validationErrors = new();
             List<IdentityError?>? errors = new List<IdentityError?>();
