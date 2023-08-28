@@ -1,7 +1,6 @@
 ﻿using BookStore.Application.Contracts;
-using BookStore.Application.Dtos.Role;
-using BookStore.Application.Dtos.Users;
-using BookStore.Domain.Models;
+using BookStore.Application.Dtos.RoleDtos;
+using BookStore.Domain.Models.RoleAggregates;
 using BookStore.Utility.ValidationErrors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,12 +9,18 @@ namespace BookStore.Application.Services
 {
     public class RoleService : IRoleService
     {
+        #region [- Constructor -]
+
         private readonly RoleManager<ApplicationRole> _roleManager;
 
         public RoleService(RoleManager<ApplicationRole> roleManager)
         {
             _roleManager = roleManager;
         }
+
+        #endregion
+
+        #region [- Create -]
 
         public async Task<List<ValidationError?>?> CreateAsync(CreateRoleDto roleDto)
         {
@@ -53,6 +58,10 @@ namespace BookStore.Application.Services
 
         }
 
+        #endregion
+
+        #region [- Get -]
+
         public async Task<(List<GetAllRoleDto?>?, List<ValidationError?>?)> GetAllAsync()
         {
 
@@ -79,5 +88,7 @@ namespace BookStore.Application.Services
 
             return (rolesDto, errors);
         }
+
+        #endregion
     }
 }

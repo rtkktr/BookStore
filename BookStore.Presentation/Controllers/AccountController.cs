@@ -1,6 +1,5 @@
 ﻿using BookStore.Application.Contracts;
-using BookStore.Application.Dtos.Account;
-using Microsoft.AspNetCore.Identity;
+using BookStore.Application.Dtos.AccountDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Presentation.Controllers

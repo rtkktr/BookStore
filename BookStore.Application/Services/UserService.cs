@@ -1,6 +1,6 @@
 ﻿using BookStore.Application.Contracts;
-using BookStore.Application.Dtos.Users;
-using BookStore.Domain.Models;
+using BookStore.Application.Dtos.UserDtos;
+using BookStore.Domain.Models.UserAggregates;
 using BookStore.Utility.ValidationErrors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +9,8 @@ namespace BookStore.Application.Services
 {
     public class UserService : IUserService
     {
+        #region [- Constructor -]
+
         private readonly UserManager<ApplicationUser> _userManager;
 
         public UserService(UserManager<ApplicationUser> userManager)
@@ -16,6 +18,10 @@ namespace BookStore.Application.Services
             _userManager = userManager;
         }
 
+        #endregion
+
+        #region [- Create -]
+        
         public async Task<List<ValidationError?>?> CreateAsync(CreateUserDto user)
         {
             var identityUser = new ApplicationUser
@@ -64,6 +70,10 @@ namespace BookStore.Application.Services
             return validationErrors;
         }
 
+        #endregion
+
+        #region [- Get -]
+
         public async Task<(List<GetAllUserDto?>?, List<ValidationError?>?)> GetAllAsync()
         {
             List<GetAllUserDto?>? usersDto = new List<GetAllUserDto?>();
@@ -90,7 +100,6 @@ namespace BookStore.Application.Services
 
             return (usersDto, errors);
         }
-
         public async Task<(GetUserDto ,List<ValidationError?>?)> GetUserByIdAsync(string id)
         {
             GetUserDto? userDto = new GetUserDto();
@@ -135,6 +144,10 @@ namespace BookStore.Application.Services
 
         }
 
+        #endregion
+
+        #region [- Remove -]
+
         public async Task<List<ValidationError?>?> RemoveAsync(RemoveUserDto removeUserDto)
         {
             List<IdentityError?>? errors = new List<IdentityError?>();
@@ -165,6 +178,11 @@ namespace BookStore.Application.Services
 
             return validationErrors;
         }
+
+        #endregion
+
+        #region [- Edit -]
+
         public async Task<List<ValidationError?>?> EditAsync(EditUserDto editUserDto)
         {
             List<ValidationError?>? validationErrors = new();
@@ -205,6 +223,8 @@ namespace BookStore.Application.Services
             return validationErrors;
 
         }
+
+        #endregion
     }
 
 }

@@ -1,4 +1,4 @@
-﻿using BookStore.Application.Dtos.Role;
+﻿using BookStore.Application.Dtos.RoleDtos;
 using BookStore.Utility.ValidationErrors;
 
 namespace BookStore.Application.Contracts

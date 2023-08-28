@@ -1,6 +1,7 @@
 using BookStore.Application.Contracts;
 using BookStore.Application.Services;
-using BookStore.Domain.Models;
+using BookStore.Domain.Models.RoleAggregates;
+using BookStore.Domain.Models.UserAggregates;
 using BookStore.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

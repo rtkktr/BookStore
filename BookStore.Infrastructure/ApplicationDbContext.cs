@@ -1,4 +1,10 @@
-﻿using BookStore.Domain.Models;
+﻿using BookStore.Domain.Models.AuthorAggregates;
+using BookStore.Domain.Models.BookAggregates;
+using BookStore.Domain.Models.OrderAggregates;
+using BookStore.Domain.Models.PublisherAggregates;
+using BookStore.Domain.Models.RoleAggregates;
+using BookStore.Domain.Models.TranslatorAggregates;
+using BookStore.Domain.Models.UserAggregates;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;

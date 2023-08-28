@@ -1,6 +1,6 @@
 ﻿using BookStore.Application.Contracts;
-using BookStore.Application.Dtos.Account;
-using BookStore.Domain.Models;
+using BookStore.Application.Dtos.AccountDtos;
+using BookStore.Domain.Models.UserAggregates;
 using BookStore.Utility.ValidationErrors;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,6 +8,8 @@ namespace BookStore.Application.Services
 {
     public class AccountService : IAccountService
     {
+        #region [- Constructor -]
+
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AccountService(SignInManager<ApplicationUser> signInManager)
@@ -15,6 +17,10 @@ namespace BookStore.Application.Services
             _signInManager = signInManager;
         }
 
+        #endregion
+
+        #region [- Sign In -]
+        
         public async Task<List<ValidationError?>?> SignInAsync(LoginDto login)
         {
             List<ValidationError?>? errors = new();
@@ -33,9 +39,15 @@ namespace BookStore.Application.Services
             return errors;
         }
 
+        #endregion
+
+        #region Logout
+
         public async Task Logout()
         {
             await _signInManager.SignOutAsync();
         }
+
+        #endregion
     }
 }
