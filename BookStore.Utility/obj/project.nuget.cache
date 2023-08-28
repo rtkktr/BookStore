@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YFx7UTmIdXcLBFaHRY2rVqYzCIGslAL+SsK4ZuCClBNRZq42nvYH+OyxbxZgPyxmZQYLHhhDzYmiQ1IgYWQ0aA==",
+  "dgSpecHash": "pMLn1pF+kPPfcP9tUXFK3i5/57lJiDcRAJUMNzTVriRLrLsPJUnrvLVKf/mqlM31r1qff8jH87m8KS3vEXQ5/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amirh\\Desktop\\Amirhosein\\programming\\BookStore\\BookStore\\BookStore.Utility\\BookStore.Utility.csproj",
+  "projectFilePath": "E:\\projects\\c#\\BookStore\\BookStore.Utility\\BookStore.Utility.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
