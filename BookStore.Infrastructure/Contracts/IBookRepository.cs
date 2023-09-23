@@ -1,6 +1,6 @@
-﻿namespace BookStore.Infrastructure.Contracts
+﻿using BookStore.Domain.Models.BookAggregates;
+
+namespace BookStore.Infrastructure.Contracts
 {
-    public interface IBookRepository
-    {
-    }
+    public interface IBookRepository : ICompleteBaseRepository<Book> { }
 }

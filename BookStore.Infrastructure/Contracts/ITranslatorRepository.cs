@@ -1,6 +1,6 @@
-﻿namespace BookStore.Infrastructure.Contracts
+﻿using BookStore.Domain.Models.TranslatorAggregates;
+
+namespace BookStore.Infrastructure.Contracts
 {
-    public interface ITranslatorRepository
-    {
-    }
+    public interface ITranslatorRepository : ICompleteBaseRepository<Translator> { }
 }
